@@ -4,5 +4,7 @@ import userCount from 'atoms/userCount'
 
 export default function () {
   const [fetchedUserCount] = useAtom(userCount)
-  return <p>User count: {formatNumber(fetchedUserCount)}</p>
+  return (
+    <p className="font-body">User count: {formatNumber(fetchedUserCount)}</p>
+  )
 }
