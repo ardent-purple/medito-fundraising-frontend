@@ -12,12 +12,14 @@
   },
   "dependencies": {
     "jotai": "^2.6.1",
-    "preact": "^10.19.3"
+    "preact": "^10.19.3",
+    "react-google-recaptcha": "^3.1.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.8.1",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.11.0",
+    "@types/react-google-recaptcha": "^2.1.8",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
     "@vitejs/plugin-react": "^4.2.1",
