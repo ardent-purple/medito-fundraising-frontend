@@ -1,6 +1,7 @@
 import FeedbackForm from 'components/FeedbackForm'
 import InfoSection from 'components/InfoSection'
 import PaymentForm from 'components/PaymentForm'
+import PaymentNotification from 'components/PaymentNotification'
 import QuestionsSection from 'components/QuestionsSection'
 import RewardSection from 'components/RewardSection'
 
@@ -16,6 +17,8 @@ export default function () {
       <PaymentForm />
 
       <RewardSection />
+
+      <PaymentNotification />
     </div>
   )
 }
