@@ -14,16 +14,20 @@ export default function RewardSection() {
   }
 
   return (
-    <div className="max-w-2xl p-4 font-body">
-      <h2 className="text-3xl font-bold mb-4 font-title tracking-wider">
+    <div className="prose max-w-prose font-body">
+      <h2 className="text-3xl font-bold  font-title tracking-wider">
         Donation Rewards
       </h2>
       {donationTiersData.map((tier, index) => (
         <div key={index} className="border border-gray-300 p-4 rounded mb-4">
-          <h3 className="text-xl font-semibold mb-2">{tier.tier}</h3>
-          <p className="text-gray-600 mb-4">{tier.description}</p>
+          <h4 className="text-xl lg:text-2xl font-semibold my-0 mb-2">
+            {tier.tier}
+          </h4>
+          <p className="border-l-8 border-l-primary mb-4 pl-4 text-l lg:text-xl">
+            {tier.description}
+          </p>
           <button
-            className="bg-blue-500 text-white py-2 px-4 rounded"
+            className=" btn btn-primary text-xl lg:text-2xl py-2 px-4 rounded w-full"
             onClick={() => handleDonateClick(tier.donation)}
           >
             Donate ${tier.donation}

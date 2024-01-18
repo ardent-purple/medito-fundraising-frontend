@@ -9,11 +9,11 @@ export default function FeedbackForm() {
 
   return (
     <section className="prose max-w-prose mb-4">
-      <h2 className="font-title text-4xl tracking-wide text-white">
+      <h2 className="font-title text-4xl tracking-wide ">
         Still have questions? Contact us!
       </h2>
       <form
-        className="card card-bordered flex flex-col bg-gray-800 p-4"
+        className="card card-bordered flex flex-col bg-secondary-content p-6"
         onSubmit={async (e) => {
           e.preventDefault()
           if (!captchaRef.current) {
@@ -31,35 +31,35 @@ export default function FeedbackForm() {
       >
         <label className="form-control w-full mb-2">
           <div className="label">
-            <span className="label-text text-white">What is your name?</span>
+            <span className="label-text ">What is your name?</span>
           </div>
           <input
             name="name"
             type="text"
             required
             placeholder="Your name"
-            className="input input-bordered input-primary w-full invalid:border-pink-500 invalid:outline-pink-200"
+            className="input input-bordered input-primary w-full "
           />
         </label>
         <label className="form-control w-full mb-2">
           <div className="label">
-            <span className="label-text text-white">What is your e-mail?</span>
+            <span className="label-text ">What is your e-mail?</span>
           </div>
           <input
             type="email"
             required
             name="email"
             placeholder="Your email"
-            className="input input-bordered input-primary w-full invalid:border-pink-500 invalid:outline-pink-200"
+            className="input input-bordered input-primary w-full"
           />
         </label>
         <label className="form-control w-full mb-4">
           <div className="label">
-            <span className="label-text text-white">Your question</span>
+            <span className="label-text ">Your question</span>
           </div>
           <textarea
             name="question"
-            className="textarea textarea-primary textarea-bordered h-24 invalid:border-pink-500 invalid:outline-pink-200"
+            className="textarea textarea-primary textarea-bordered h-24 "
             placeholder="Your question"
             required
           ></textarea>

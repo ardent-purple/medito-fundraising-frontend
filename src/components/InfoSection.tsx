@@ -1,3 +1,4 @@
+import PaymentForm from 'components/PaymentForm'
 import Progressbar from 'components/Progressbar'
 import textData from 'mock-data/text'
 
@@ -10,8 +11,15 @@ export default function InfoSection() {
 
       <Progressbar />
 
+      <div class="divider divider-primary"></div>
+
+      <PaymentForm />
+
       {description.split('\n').map((paragraph) => (
-        <p key={paragraph} className="font-body text-lg mb-2 last:mb-0 ">
+        <p
+          key={paragraph}
+          className=" text-lg lg:text-xl text-justify mb-2 last:mb-0 "
+        >
           {paragraph.trim()}
         </p>
       ))}

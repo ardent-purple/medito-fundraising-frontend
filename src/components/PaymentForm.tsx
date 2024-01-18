@@ -22,7 +22,7 @@ export default function PaymentForm() {
 
   return (
     <form
-      className="max-w-xl bg-gray-800 p-8 rounded-md shadow-md font-body"
+      className="max-w-prose p-6 card card-bordered shadow-md bg-secondary-content"
       onSubmit={async (e) => {
         e.preventDefault()
 
@@ -45,21 +45,16 @@ export default function PaymentForm() {
         window.open(paymentLink, '__blank')
       }}
     >
-      <h2 className="text-3xl font-bold text-white mb-6 font-title tracking-wider">
+      <h2 className="text-3xl font-bold mb-6 font-title tracking-wider mt-0">
         Donation Form
       </h2>
 
       <div className="space-y-4">
-        <div className="flex items-center justify-between space-x-4">
-          <h4>Currency:</h4>
+        <div className="flex flex-wrap items-center justify-between ">
           {CURRENCIES.map((currency, index) => (
             <button
               key={index}
-              className={`border px-4 py-2 rounded-md ${
-                selectedCurrency === currency
-                  ? 'bg-blue-500 text-white'
-                  : 'hover:bg-gray-700 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200'
-              }`}
+              className={`btn btn-secondary mb-2 ${selectedCurrency === currency ? 'bg-accent text-accent-content' : ''}`}
               onClick={() => handleCurrencyChange(currency)}
             >
               {currency}
@@ -69,7 +64,7 @@ export default function PaymentForm() {
 
         <input
           type="number"
-          className="w-full border px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200"
+          className="w-full border px-4 py-2 rounded-md"
           placeholder="Enter amount"
           required
           value={amount}
@@ -78,7 +73,7 @@ export default function PaymentForm() {
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
+          className="w-full btn btn-primary text-2xl"
           disabled={paymentLinkLoading}
         >
           {paymentLinkLoading ? (
