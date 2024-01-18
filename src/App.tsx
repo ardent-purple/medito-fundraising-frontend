@@ -9,7 +9,7 @@ import RewardSection from 'components/RewardSection'
 import { createRef } from 'preact'
 
 export default function () {
-  const paymentFormRef = createRef<HTMLFormElement>()
+  const paymentFormRef = createRef<HTMLDivElement>()
 
   const handleScrollToPaymentForm = () =>
     paymentFormRef.current?.scrollIntoView({ behavior: 'smooth' })

@@ -5,7 +5,7 @@ const DonationButton = ({
   targetRef,
   handleScrollToPaymentForm,
 }: {
-  targetRef: RefObject<HTMLFormElement>
+  targetRef: RefObject<HTMLDivElement>
   handleScrollToPaymentForm: () => void
 }) => {
   const buttonRef = useRef(null)

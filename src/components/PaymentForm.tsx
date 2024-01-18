@@ -12,7 +12,7 @@ const getPaymentLinkQuery = (amount: number, currency: Currency) =>
 
 const CURRENCIES = Object.values(Currency)
 
-const PaymentForm = forwardRef<HTMLFormElement, unknown>((_, ref) => {
+const PaymentForm = forwardRef<HTMLDivElement, unknown>((_, ref) => {
   const [selectedCurrency, setSelectedCurrency] = useAtom(currency)
   const [amount, setAmount] = useAtom(donationAmount)
   const [paymentLinkLoading, setPaymentLinkLoading] = useState(false)
@@ -21,30 +21,25 @@ const PaymentForm = forwardRef<HTMLFormElement, unknown>((_, ref) => {
     setSelectedCurrency(currency)
   }
 
+  const handleFormSubmit = async () => {
+    setPaymentLinkLoading(true)
+
+    const paymentLinkQuery = getPaymentLinkQuery(amount, selectedCurrency)
+    const paymentLinkResponse = await fetch(paymentLinkQuery)
+    const paymentLink = await paymentLinkResponse.text()
+    setPaymentLinkLoading(false)
+    if (!paymentLink) {
+      // TODO: maybe add notification toast?
+      return
+    }
+
+    window.open(paymentLink, '__blank')
+  }
+
   return (
-    <form
+    <div
       ref={ref}
       className="max-w-prose p-6 card card-bordered shadow-md bg-secondary-content"
-      onSubmit={async (e) => {
-        e.preventDefault()
-
-        if (!amount) {
-          return
-        }
-
-        setPaymentLinkLoading(true)
-
-        const paymentLinkQuery = getPaymentLinkQuery(amount, selectedCurrency)
-        const paymentLinkResponse = await fetch(paymentLinkQuery)
-        const paymentLink = await paymentLinkResponse.text()
-        setPaymentLinkLoading(false)
-        if (!paymentLink) {
-          // TODO: maybe add notification toast?
-          return
-        }
-
-        window.open(paymentLink, '__blank')
-      }}
     >
       <h2 className="text-3xl font-bold mb-6 font-title tracking-wider mt-0">
         Donation Form
@@ -80,6 +75,7 @@ const PaymentForm = forwardRef<HTMLFormElement, unknown>((_, ref) => {
           type="submit"
           className="w-full btn btn-primary text-2xl"
           disabled={paymentLinkLoading}
+          onClick={() => handleFormSubmit()}
         >
           {paymentLinkLoading ? (
             <span class="loading loading-spinner loading-md"></span>
@@ -88,7 +84,7 @@ const PaymentForm = forwardRef<HTMLFormElement, unknown>((_, ref) => {
           )}
         </button>
       </div>
-    </form>
+    </div>
   )
 })
 
