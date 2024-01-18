@@ -10,4 +10,4 @@ Frontend build with love for Medito =)
 ## Deployment
 
 1. Run `yarn build`
-2. Deploy static files in `docs`` folder
+2. Deploy static files in `dist` folder
