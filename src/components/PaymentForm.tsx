@@ -54,6 +54,7 @@ const PaymentForm = forwardRef<HTMLFormElement, unknown>((_, ref) => {
         <div className="flex flex-wrap items-center justify-between ">
           {CURRENCIES.map((currency, index) => (
             <button
+              type="button"
               key={index}
               className={`btn btn-secondary mb-2 ${selectedCurrency === currency ? 'bg-accent text-accent-content' : ''}`}
               onClick={() => handleCurrencyChange(currency)}
