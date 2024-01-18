@@ -1,8 +1,12 @@
-import PaymentForm from 'components/PaymentForm'
+import { ReactNode } from 'preact/compat'
 import Progressbar from 'components/Progressbar'
 import textData from 'mock-data/text'
 
-export default function InfoSection() {
+interface IProps {
+  paymentForm: ReactNode
+}
+
+export default function InfoSection({ paymentForm }: IProps) {
   const { title, description } = textData
 
   return (
@@ -13,7 +17,7 @@ export default function InfoSection() {
 
       <div class="divider divider-primary"></div>
 
-      <PaymentForm />
+      {paymentForm}
 
       {description.split('\n').map((paragraph) => (
         <p

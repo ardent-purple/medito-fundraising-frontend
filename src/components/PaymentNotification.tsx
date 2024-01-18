@@ -65,7 +65,7 @@ export default function PaymentNotification() {
 
   return (
     <div
-      className={`toast toast-top max-lg:toast-center lg:toast-right transition-transform  ${showToast ? '' : '-translate-y-full'}`}
+      className={`toast toast-bottom max-lg:toast-center lg:toast-right transition-transform  ${showToast ? '' : 'translate-y-full'} text-xl`}
     >
       {notifications.map(({ amount, currency }) => (
         <div className="alert alert-success">

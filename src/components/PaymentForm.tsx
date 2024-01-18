@@ -1,3 +1,4 @@
+import { forwardRef } from 'preact/compat'
 import { useAtom } from 'jotai'
 import { useState } from 'preact/hooks'
 import Currency from 'types/currency'
@@ -11,7 +12,7 @@ const getPaymentLinkQuery = (amount: number, currency: Currency) =>
 
 const CURRENCIES = Object.values(Currency)
 
-export default function PaymentForm() {
+const PaymentForm = forwardRef<HTMLFormElement, unknown>((_, ref) => {
   const [selectedCurrency, setSelectedCurrency] = useAtom(currency)
   const [amount, setAmount] = useAtom(donationAmount)
   const [paymentLinkLoading, setPaymentLinkLoading] = useState(false)
@@ -22,6 +23,7 @@ export default function PaymentForm() {
 
   return (
     <form
+      ref={ref}
       className="max-w-prose p-6 card card-bordered shadow-md bg-secondary-content"
       onSubmit={async (e) => {
         e.preventDefault()
@@ -33,7 +35,6 @@ export default function PaymentForm() {
         setPaymentLinkLoading(true)
 
         const paymentLinkQuery = getPaymentLinkQuery(amount, selectedCurrency)
-        console.log(paymentLinkQuery)
         const paymentLinkResponse = await fetch(paymentLinkQuery)
         const paymentLink = await paymentLinkResponse.text()
         setPaymentLinkLoading(false)
@@ -85,4 +86,6 @@ export default function PaymentForm() {
       </div>
     </form>
   )
-}
+})
+
+export default PaymentForm

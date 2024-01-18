@@ -4,13 +4,18 @@ import currency from 'atoms/currency'
 import donationAmount from 'atoms/donationAmount'
 import donationTiersData from 'mock-data/donation-tiers'
 
-export default function RewardSection() {
+export default function RewardSection({
+  handleScrollToPaymentForm,
+}: {
+  handleScrollToPaymentForm: () => void
+}) {
   const [, setSelectedCurrency] = useAtom(currency)
   const [, setDonationAmount] = useAtom(donationAmount)
 
   const handleDonateClick = (amount: number) => {
     setDonationAmount(amount)
     setSelectedCurrency(Currency.USD)
+    handleScrollToPaymentForm()
   }
 
   return (
