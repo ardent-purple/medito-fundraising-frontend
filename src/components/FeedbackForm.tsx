@@ -9,11 +9,11 @@ export default function FeedbackForm() {
 
   return (
     <section className="prose max-w-prose mb-4">
-      <h2 className="font-title text-4xl tracking-wide">
+      <h2 className="font-title text-4xl tracking-wide text-white">
         Still have questions? Contact us!
       </h2>
       <form
-        className="card card-bordered flex flex-col bg-slate-700 p-4"
+        className="card card-bordered flex flex-col bg-gray-800 p-4"
         onSubmit={async (e) => {
           e.preventDefault()
           if (!captchaRef.current) {
@@ -30,36 +30,36 @@ export default function FeedbackForm() {
         }}
       >
         <label className="form-control w-full mb-2">
-          <div class="label">
-            <span class="label-text">What is your name?</span>
+          <div className="label">
+            <span className="label-text text-white">What is your name?</span>
           </div>
           <input
             name="name"
             type="text"
             required
             placeholder="Your name"
-            class="input input-bordered input-primary w-full invalid:border-pink-500 invalid:outline-pink-200"
+            className="input input-bordered input-primary w-full invalid:border-pink-500 invalid:outline-pink-200"
           />
         </label>
-        <label className="form-control w-full  mb-2">
-          <div class="label">
-            <span class="label-text">What is your e-mail?</span>
+        <label className="form-control w-full mb-2">
+          <div className="label">
+            <span className="label-text text-white">What is your e-mail?</span>
           </div>
           <input
             type="email"
             required
             name="email"
             placeholder="Your email"
-            class="input input-bordered input-primary w-full invalid:border-pink-500 invalid:outline-pink-200"
+            className="input input-bordered input-primary w-full invalid:border-pink-500 invalid:outline-pink-200"
           />
         </label>
-        <label class="form-control w-full mb-4">
-          <div class="label">
-            <span class="label-text">Your question</span>
+        <label className="form-control w-full mb-4">
+          <div className="label">
+            <span className="label-text text-white">Your question</span>
           </div>
           <textarea
             name="question"
-            class="textarea textarea-primary textarea-bordered h-24 invalid:border-pink-500 invalid:outline-pink-200"
+            className="textarea textarea-primary textarea-bordered h-24 invalid:border-pink-500 invalid:outline-pink-200"
             placeholder="Your question"
             required
           ></textarea>
@@ -69,7 +69,7 @@ export default function FeedbackForm() {
           ref={captchaRef}
           size={RECAPTCHA_SIZE}
         />
-        <button type="submit" className="btn btn-primary w-full text-xl ">
+        <button type="submit" className="btn btn-primary w-full text-xl">
           Submit
         </button>
       </form>

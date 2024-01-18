@@ -1,6 +1,8 @@
 import FeedbackForm from 'components/FeedbackForm'
 import InfoSection from 'components/InfoSection'
+import PaymentForm from 'components/PaymentForm'
 import QuestionsSection from 'components/QuestionsSection'
+import RewardSection from 'components/RewardSection'
 
 export default function () {
   return (
@@ -10,6 +12,10 @@ export default function () {
       <QuestionsSection />
 
       <FeedbackForm />
+
+      <PaymentForm />
+
+      <RewardSection />
     </div>
   )
 }

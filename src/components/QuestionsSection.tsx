@@ -1,4 +1,4 @@
-import textData from 'mock-data/text-data'
+import textData from 'mock-data/text'
 
 const ACCORDION_NAME = 'QuestionsSection'
 

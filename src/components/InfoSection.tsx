@@ -1,6 +1,6 @@
-import financeData from 'mock-data/finance-data'
+import financeData from 'mock-data/finance'
 import getPercentage from 'helpers/getPercentage'
-import textData from 'mock-data/text-data'
+import textData from 'mock-data/text'
 
 export default function InfoSection() {
   const { title, description } = textData
