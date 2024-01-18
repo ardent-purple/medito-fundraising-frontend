@@ -57,7 +57,10 @@ const PaymentForm = forwardRef<HTMLFormElement, unknown>((_, ref) => {
               type="button"
               key={index}
               className={`btn btn-secondary mb-2 ${selectedCurrency === currency ? 'bg-accent text-accent-content' : ''}`}
-              onClick={() => handleCurrencyChange(currency)}
+              onClick={(e) => {
+                e.preventDefault()
+                handleCurrencyChange(currency)
+              }}
             >
               {currency}
             </button>
