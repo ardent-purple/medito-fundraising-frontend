@@ -14,7 +14,6 @@
     "react-hooks",
     "@typescript-eslint",
     "prettier",
-    "sort-imports-es6-autofix",
     "import",
     "no-relative-import-paths"
   ],
@@ -44,14 +43,6 @@
         "semi": false,
         "singleQuote": true,
         "endOfLine": "auto"
-      }
-    ],
-    "sort-imports-es6-autofix/sort-imports-es6": [
-      2,
-      {
-        "ignoreCase": false,
-        "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
       }
     ],
     "import/prefer-default-export": "error"

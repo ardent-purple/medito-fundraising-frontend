@@ -1,11 +1,12 @@
-import { forwardRef } from 'preact/compat'
-import { useAtom } from 'jotai'
-import { useState } from 'preact/hooks'
-import Currency from 'types/currency'
 import currency from 'atoms/currency'
 import donationAmount from 'atoms/donationAmount'
+import { useAtom } from 'jotai'
+import { forwardRef } from 'preact/compat'
+import { useState } from 'preact/hooks'
+import Currency from 'types/currency'
 
-const PAYMENT_LINK_ENDPOINT = 'https://ardent-purple.com:42069/payment-link'
+const PAYMENT_LINK_ENDPOINT =
+  'https://medito-fundraiding-backend.ardentpurple.dev/payment-link'
 
 const getPaymentLinkQuery = (amount: number, currency: Currency) =>
   `${PAYMENT_LINK_ENDPOINT}?currency=${currency.toLowerCase()}&amount=${amount * 100}`
