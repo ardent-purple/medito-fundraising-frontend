@@ -6,7 +6,7 @@ import { useState } from 'preact/hooks'
 import Currency from 'types/currency'
 
 const PAYMENT_LINK_ENDPOINT =
-  'https://medito-fundraiding-backend.ardentpurple.dev/payment-link'
+  'https://medito.ardentpurple.dev/payment-link'
 
 const getPaymentLinkQuery = (amount: number, currency: Currency) =>
   `${PAYMENT_LINK_ENDPOINT}?currency=${currency.toLowerCase()}&amount=${amount * 100}`
